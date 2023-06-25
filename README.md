@@ -34,7 +34,17 @@ Just drag an drop FlameCord.jar into your server folder and run it.
 
 You can customize many FlameCord features in the flamecord.yml file.
 
-<a href="https://builtbybit.com/resources/13492/" alt="Download Now!"><img src="https://archive.org/download/download-button-png/download-button-png.png" width=20% height=20%><img/><a/>
+## Building from source
+
+FlameCord uses Maven to manage dependencies. In order to build FlameCord, you need to have [Git](https://git-scm.com/) and [Maven](https://maven.apache.org/) installed.
+
+```bash
+git clone https://github.com/sammwyy/FlameCord
+cd FlameCord
+./flamecord b
+```
+
+The built jar file will be located in `FlameCord/FlameCord-Proxy/target/`.
 
 ## 🤝 Contributing
 
