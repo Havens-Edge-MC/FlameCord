@@ -1,31 +1,16 @@
-From 40db55725460874e6f2129bdbfa60478bba3fb69 Mon Sep 17 00:00:00 2001
+From 5d9b83db52a2a5f2431ed2b30da64e6119594011 Mon Sep 17 00:00:00 2001
 From: LinsaFTW <25271111+linsaftw@users.noreply.github.com>
 Date: Thu, 7 Oct 2021 21:37:24 -0300
 Subject: [PATCH] Custom motd system
 
 
-diff --git a/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameConfig.java b/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameConfig.java
-index 5589ce1b..1e928197 100644
---- a/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameConfig.java
-+++ b/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameConfig.java
-@@ -15,6 +15,10 @@ public class FlameConfig {
-         return (int) setIfUnexistant(arg1, (Object) arg2, configuration);
-     }
- 
-+    String setIfUnexistant(final String arg1, final String arg2, final Configuration configuration) {
-+        return (String) setIfUnexistant(arg1, (Object) arg2, configuration);
-+    }
-+
-     boolean setIfUnexistant(final String arg1, final boolean arg2, final Configuration configuration) {
-         return (boolean) setIfUnexistant(arg1, (Object) arg2, configuration);
-     }
 diff --git a/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameCordConfiguration.java b/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameCordConfiguration.java
-index edecc1e5..ab33e071 100644
+index b563cbce..b41ee92c 100644
 --- a/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameCordConfiguration.java
 +++ b/flamecord/src/main/java/dev/_2lstudios/flamecord/configuration/FlameCordConfiguration.java
-@@ -3,15 +3,94 @@ package dev._2lstudios.flamecord.configuration;
+@@ -2,15 +2,94 @@ package dev._2lstudios.flamecord.configuration;
+ 
  import java.io.File;
- import java.io.IOException;
  import java.util.ArrayList;
 +import java.util.Collections;
  import java.util.Arrays;
@@ -118,29 +103,29 @@ index edecc1e5..ab33e071 100644
      @Getter
      private boolean loggerInitialhandler = false;
      @Getter
-@@ -36,6 +115,22 @@ public class FlameCordConfiguration extends FlameConfig {
-                 configuration = configurationProvider.load(configurationFile);
-             }
+@@ -32,6 +111,22 @@ public class FlameCordConfiguration extends FlameConfig {
+         this.loggerHaProxy = setIfUnexistant("logger.haproxy", this.loggerHaProxy, configuration);
+         this.loggerDetailedConnection = setIfUnexistant("logger.detailed-connect-errors", this.loggerDetailedConnection, configuration);
  
-+            this.motdEnabled = setIfUnexistant("custom-motd.motd.enabled", this.motdEnabled, configuration);
-+            this.hexMotds = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.motd.motds", this.motds, configuration)), 735);
-+            this.motds = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.motd.motds", this.motds, configuration)), 734);
-+            this.sampleEnabled = setIfUnexistant("custom-motd.sample.enabled", this.sampleEnabled, configuration);
-+            this.hexSamples = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.sample.samples", this.samples, configuration)), 735);
-+            this.samples = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.sample.samples", this.samples, configuration)), 734);
-+            this.protocolEnabled = setIfUnexistant("custom-motd.protocol.enabled", this.protocolEnabled, configuration);
-+            this.protocolName = ColorUtil.hexColor(setIfUnexistant("custom-motd.protocol.name", this.protocolName, configuration), 735);
-+            this.protocolAlwaysShow = setIfUnexistant("custom-motd.protocol.always-show", this.protocolAlwaysShow, configuration);
-+            this.maxPlayersEnabled = setIfUnexistant("custom-motd.maxplayers.enabled", this.maxPlayersEnabled, configuration);
-+            this.maxPlayersAmount = setIfUnexistant("custom-motd.maxplayers.amount", this.maxPlayersAmount, configuration);
-+            this.maxPlayersOneMore = setIfUnexistant("custom-motd.maxplayers.justonemore", this.maxPlayersOneMore, configuration);
-+            this.fakePlayersEnabled = setIfUnexistant("custom-motd.fakeplayers.enabled", this.fakePlayersEnabled, configuration);
-+            this.fakePlayersAmount = setIfUnexistant("custom-motd.fakeplayers.amount", this.fakePlayersAmount, configuration);
-+            this.fakePlayersMode = setIfUnexistant("custom-motd.fakeplayers.mode", this.fakePlayersMode, configuration);
++        this.motdEnabled = setIfUnexistant("custom-motd.motd.enabled", this.motdEnabled, configuration);
++        this.hexMotds = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.motd.motds", this.motds, configuration)), 735);
++        this.motds = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.motd.motds", this.motds, configuration)), 734);
++        this.sampleEnabled = setIfUnexistant("custom-motd.sample.enabled", this.sampleEnabled, configuration);
++        this.hexSamples = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.sample.samples", this.samples, configuration)), 735);
++        this.samples = ColorUtil.hexColor(new ArrayList<>(setIfUnexistant("custom-motd.sample.samples", this.samples, configuration)), 734);
++        this.protocolEnabled = setIfUnexistant("custom-motd.protocol.enabled", this.protocolEnabled, configuration);
++        this.protocolName = ColorUtil.hexColor(setIfUnexistant("custom-motd.protocol.name", this.protocolName, configuration), 735);
++        this.protocolAlwaysShow = setIfUnexistant("custom-motd.protocol.always-show", this.protocolAlwaysShow, configuration);
++        this.maxPlayersEnabled = setIfUnexistant("custom-motd.maxplayers.enabled", this.maxPlayersEnabled, configuration);
++        this.maxPlayersAmount = setIfUnexistant("custom-motd.maxplayers.amount", this.maxPlayersAmount, configuration);
++        this.maxPlayersOneMore = setIfUnexistant("custom-motd.maxplayers.justonemore", this.maxPlayersOneMore, configuration);
++        this.fakePlayersEnabled = setIfUnexistant("custom-motd.fakeplayers.enabled", this.fakePlayersEnabled, configuration);
++        this.fakePlayersAmount = setIfUnexistant("custom-motd.fakeplayers.amount", this.fakePlayersAmount, configuration);
++        this.fakePlayersMode = setIfUnexistant("custom-motd.fakeplayers.mode", this.fakePlayersMode, configuration);
 +
-             this.loggerInitialhandler = setIfUnexistant("logger.initialhandler", this.loggerInitialhandler, configuration);
-             this.loggerExceptions = setIfUnexistant("logger.exceptions", this.loggerExceptions, configuration);
-             this.loggerDump = setIfUnexistant("logger.dump", this.loggerDump, configuration);
+         save(configuration, configurationFile);
+     }
+ }
 diff --git a/flamecord/src/main/java/dev/_2lstudios/flamecord/utils/ColorUtil.java b/flamecord/src/main/java/dev/_2lstudios/flamecord/utils/ColorUtil.java
 new file mode 100644
 index 00000000..9587bccd
@@ -608,7 +593,7 @@ index 00000000..0b039c79
 +
 +}
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
-index 66a34754..58be68b0 100644
+index c2f4ede9..5396029c 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
 @@ -23,6 +23,8 @@ import javax.crypto.spec.SecretKeySpec;
@@ -620,7 +605,7 @@ index 66a34754..58be68b0 100644
  import lombok.Getter;
  import lombok.RequiredArgsConstructor;
  import net.md_5.bungee.BungeeCord;
-@@ -275,7 +277,6 @@ public class InitialHandler extends PacketHandler implements PendingConnection
+@@ -285,7 +287,6 @@ public class InitialHandler extends PacketHandler implements PendingConnection
          Preconditions.checkState( thisState == State.STATUS, "Not expecting STATUS" );
  
          ServerInfo forced = AbstractReconnectHandler.getForcedHost( this );
@@ -628,7 +613,7 @@ index 66a34754..58be68b0 100644
          final int protocol = ( ProtocolConstants.SUPPORTED_VERSION_IDS.contains( handshake.getProtocolVersion() ) ) ? handshake.getProtocolVersion() : bungee.getProtocolVersion();
  
          Callback<ServerPing> pingBack = new Callback<ServerPing>()
-@@ -338,7 +339,56 @@ public class InitialHandler extends PacketHandler implements PendingConnection
+@@ -348,7 +349,56 @@ public class InitialHandler extends PacketHandler implements PendingConnection
              ( (BungeeServerInfo) forced ).ping( pingBack, handshake.getProtocolVersion() );
          } else
          {
@@ -687,5 +672,5 @@ index 66a34754..58be68b0 100644
  
          thisState = State.PING;
 -- 
-2.37.3.windows.1
+2.40.1.windows.1
 
