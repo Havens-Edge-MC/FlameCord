@@ -55,5 +55,4 @@ FlameCord is compiled like Waterfall does; Please follow the [CONTRIBUTING.md](h
 
 ## 📝 License
 
-Copyright © 2018-2023 [2LStudios](https://github.com/sammwyy).  
 This project is [MIT License](LICENSE.txt) licensed.
