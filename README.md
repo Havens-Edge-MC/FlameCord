@@ -6,7 +6,7 @@
 <a href="https://discord.com/invite/gF36AT3" alt="Discord">
     <img src="https://img.shields.io/discord/442079515498381312?style=flat-square&color=%237289da&label=Discord&logo=discord&logoColor=%237289da" />
 </a>
-<a href="https://github.com/sammwyy/FlameCord/blob/master/LICENSE.txt" alt="License">
+<a href="https://github.com/Havens-Edge-MC/FlameCord/blob/master/LICENSE.txt" alt="License">
     <img src="https://img.shields.io/github/license/sammwyy/flamecord?style=flat-square" />
 </a>
 
@@ -32,14 +32,14 @@ Just drag an drop FlameCord.jar into your server folder and run it.
 
 You can customize many FlameCord features in the flamecord.yml file.
 
-> You can find pre-compiled FlameCord builds under [Releases tab](https://github.com/sammwyy/FlameCord/releases).
+> You can find pre-compiled FlameCord builds under [Releases tab](https://github.com/Havens-Edge-MC/FlameCord/releases).
 
 ## 📦 Building from source
 
 FlameCord uses Maven to manage dependencies. In order to build FlameCord, you need to have [Git](https://git-scm.com/) and [Maven](https://maven.apache.org/) installed.
 
 ```bash
-git clone https://github.com/sammwyy/FlameCord
+git clone https://github.com/Havens-Edge-MC/FlameCord
 cd FlameCord
 ./flamecord b
 ```
@@ -49,9 +49,9 @@ The built jar file will be located in `FlameCord/FlameCord-Proxy/target/`.
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
-Feel free to check [issues page](https://github.com/sammwyy/flamecord).
+Feel free to check [issues page](https://github.com/Havens-Edge-MC/FlameCord/issues).
 
-FlameCord is compiled like Waterfall does; Please follow the [CONTRIBUTING.md](https://github.com/sammwyy/FlameCord/blob/master/CONTRIBUTING.md) file. If you need help you can always contact us on Discord.
+FlameCord is compiled like Waterfall does; Please follow the [CONTRIBUTING.md](https://github.com/Havens-Edge-MC/FlameCord/blob/master/CONTRIBUTING.md) file. If you need help you can always contact us on Discord.
 
 ## 📝 License
 
